@@ -1,9 +1,10 @@
 //BFS TRAVERSAL
 #include <stdio.h>
 #define MAX_VERTICES 100
-int graph[MAX_VERTICES][MAX_VERTICES];
-int visited[MAX_VERTICES];
+int graph[MAX_VERTICES][MAX_VERTICES] = {0};
+int visited[MAX_VERTICES] = {0};
 int numVertices = 0;
+
 void addEdge(int u, int v)
 {
     if (u >= numVertices || v >= numVertices)
@@ -13,6 +14,14 @@ void addEdge(int u, int v)
     }
     graph[u][v] = 1;
     graph[v][u] = 1;
+}
+
+void resetVisited(int count)
+{
+    for (int i = 0; i < count; i++)
+    {
+        visited[i] = 0;
+    }
 }
 
 void bfs(int startVertex)
@@ -40,7 +49,7 @@ void bfs(int startVertex)
 
 int main()
 {
-    numVertices = 5; 
+    numVertices = 5;
     addEdge(0, 1);
     addEdge(0, 2);
     addEdge(1, 3);
@@ -48,3 +57,5 @@ int main()
     bfs(0); 
     return 0;
 }
+
+
